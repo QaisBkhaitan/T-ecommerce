@@ -16,6 +16,7 @@ import ResetPassword from "./Componentes/Signin/ResetPassword.jsx";
 import Order from "./Componentes/Cart/Order.jsx";
 import Profile from "./Pages/Profile.jsx";
 import MyOrders from "./Pages/MyOrders.jsx";
+import NotFound from "./Pages/Notfound.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -23,6 +24,10 @@ export default function App() {
       path: "/",
       element: <Root />,
       children: [
+        {
+          path:'*',
+          element : <NotFound />
+        },
         {
           path: "/",
           element: <Categories />,

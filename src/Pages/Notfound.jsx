@@ -1,39 +1,24 @@
-import React from 'react'
-
-export default function Notfound() {
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './NotFound.css';
+export default function NotFound() {
   return (
-    <div>
-      <h2>Your Cart</h2>
-      <div className="d-flex">
-        {cart.length > 0 ? (
-         <Swiper
-            spaceBetween={30}
-            slidesPerView={3}
-            onSlideChange={() => console.log('Slide changed')}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
-            {cart.map((item) => (
-              <SwiperSlide key={item._id}>
-                <div className="product card" style={{ width: '18rem', display: 'flex', flexDirection: 'column', height: '100%' }}>
-                  <img 
-                    src={item.details.mainImage.secure_url} 
-                    className="card-img-top" 
-                    alt={item.details.name}
-                    style={{ height: '350px', objectFit: 'cover' }}  
-                  />
-                  <div className="card-body d-flex flex-column justify-content-between" style={{ flexGrow: 1 }}>
-                    <h5 className="card-title">{item.details.name}</h5>
-                    <p className="card-text">{item.details.price}$</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-          
-        ) : (
-          <p>Your cart is empty.</p>
-        )}
-      </div>
+    <div className="not-found-container bg-qais">
+      <div className="not-found-content">
+        <h1 className="not-found-title">404</h1>
+        <h2 className="not-found-subtitle">Oops! Page Not Found</h2>
+        <p className="not-found-text">
+          The page you're looking for doesn't exist or has been moved. 
+        </p>
+        <Link to="/" className="home-button">
+          Go Back Home
+        </Link>
+      </div>
+      <div className="not-found-illustration">
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/751/751463.png" alt="404 Illustration" />
+      </div>
     </div>
-  )
+  );
 }
+
